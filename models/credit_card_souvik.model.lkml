@@ -14,5 +14,16 @@ explore: user_data {}
 
 explore: credit_card {}
 
-explore: transaction {}
+explore: transaction {
+  join: credit_card {
+    type: left_outer
+    relationship: many_to_one
+    sql_on: ${transaction.card_id} = ${credit_card.id} ;;
+  }
 
+  join: user_data {
+    type: left_outer
+    sql_on: ${transaction.client_id} = ${user_data.id} ;;
+    relationship: many_to_one
+  }
+}

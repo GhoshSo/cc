@@ -48,6 +48,16 @@ view: transaction {
     type: string
     sql: ${TABLE}.use_chip ;;
   }
+  measure: no_chip_transaction {
+    label: "Count of Possible Fraudlent transaction"
+    description: "The count of transaction which could be fraudulent transaction as there must be some error or the card is on the dark web and chip transaction is not used. If chip is used it is highly like it would be a fraud"
+    type: number
+    sql:  COUNTIF(${errors} IS NOT NULL
+                            AND ${use_chip} != "Chip Transaction"
+                            OR ${credit_card.card_on_dark_web} = true
+)
+ ;;
+  }
   dimension: zip {
     type: zipcode
     sql: ${TABLE}.zip ;;
