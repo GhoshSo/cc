@@ -15,6 +15,7 @@ explore: user_data {}
 explore: credit_card {}
 
 explore: transaction {
+  persist_for: "480 hours"
   join: credit_card {
     type: left_outer
     relationship: many_to_one
