@@ -58,5 +58,6 @@ view: credit_card {
   measure: count {
     type: count
     drill_fields: [id]
+    html: {{ value | times: 100 | round: 2 }}% ;;
   }
 }
