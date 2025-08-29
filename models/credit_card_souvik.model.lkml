@@ -28,4 +28,6 @@ explore: transaction {
     relationship: many_to_one
   }
   ##### Remote test
+
+  #Tere bina
 }
