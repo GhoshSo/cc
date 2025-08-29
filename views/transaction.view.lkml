@@ -11,6 +11,12 @@ view: transaction {
     type: number
     sql: ${TABLE}.amount ;;
   }
+  measure: total_transaction_amount{
+    type: sum
+    sql: ${amount} ;;
+    value_format: "$0.00"
+    drill_fields: [date_year, merchant_city ,total_transaction_amount]
+  }
   dimension: card_id {
     type: number
     sql: ${TABLE}.card_id ;;

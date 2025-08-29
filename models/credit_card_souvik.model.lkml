@@ -27,5 +27,4 @@ explore: transaction {
     sql_on: ${transaction.client_id} = ${user_data.id} ;;
     relationship: many_to_one
   }
-  #hhh
 }
